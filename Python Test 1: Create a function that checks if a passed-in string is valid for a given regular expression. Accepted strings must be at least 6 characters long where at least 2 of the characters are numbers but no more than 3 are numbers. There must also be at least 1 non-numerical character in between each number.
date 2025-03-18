@@ -1,0 +1,13 @@
+import re
+
+def is_valid_string(s):
+    if len(s) < 6:
+        return False
+    pattern = r'^(?=(?:\D*\d){2,3}\D*$)(?!.*\d\d)(?!.*\d.*\d.*\d.*\d).{6,}$'
+    match = re.fullmatch(pattern, s)
+    return match is not None
+
+# Ask the user for input and print the result
+user_input = input("Enter a string to check: ")
+result = is_valid_string(user_input)
+print("Valid String?" , result)
